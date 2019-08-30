@@ -1,6 +1,8 @@
-# fabian/sqlcmd
+# tonidy/sqlcmd
+
 
 Sqlcmd – command line tool for Microsoft SQL Server.
+(upstream image fabian/sqlcmd)
 
 [![tonidy/sqlcmd](http://dockeri.co/image/tonidy/sqlcmd)](https://registry.hub.docker.com/u/tonidy/sqlcmd/)
 
