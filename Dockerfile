@@ -1,17 +1,19 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-MAINTAINER Fabian Grutschus "docker@lubyte.de"
+# Upstream maintainer Fabian Grutschus
+LABEL maintainer="tonidy2@gmail.com"
 
-ENV MSSQLTOOLS_VERSION=17.1.0.1-1
+ARG TOOL_VERSION=17.4.1.1-1
+ENV MSSQLTOOLS_VERSION=$TOOL_VERSION
 ENV PATH /opt/mssql-tools/bin:$PATH
 
 RUN apt-get update \
-    && apt-get install -y curl apt-transport-https locales \
+    && apt-get install -y curl apt-transport-https locales gnupg \
     && locale-gen "en_US.UTF-8" \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-    && curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/msprod.list \
+    && curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/msprod.list \
     && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y mssql-tools=$MSSQLTOOLS_VERSION unixodbc-dev \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools=$MSSQLTOOLS_VERSION unixodbc-dev \
     && apt-get remove -y curl apt-transport-https \
     && rm -f /etc/apt/sources.list.d/msprod.list \
     && rm -rf /var/lib/apt/lists/*
