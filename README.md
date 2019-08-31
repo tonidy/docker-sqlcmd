@@ -18,17 +18,17 @@ All other parts of the library are licensed under [BSD 2-Clause License](LICENSE
 Connect to an Sqlsrv inside another container (Container name is "my-sqlsrv"):
 
 ```bash
-docker run -it --link my-sqlsrv:sqlsrv fabiang/sqlcmd -S sqlsrv -U sa
+docker run -it --link my-sqlsrv:sqlsrv tonidy/sqlcmd -S sqlsrv -U sa
 ```
 
 Or to any other server on the network:
 
 ```bash
-docker run -it fabiang/sqlcmd -S some-sqlsrv -U sa
+docker run -it tonidy/sqlcmd -S some-sqlsrv -U sa
 ```
 
 Get available options with:
 
 ```bash
-docker run -it fabiang/sqlcmd '-?'
+docker run -it tonidy/sqlcmd '-?'
 ```
