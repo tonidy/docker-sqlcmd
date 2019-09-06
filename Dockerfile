@@ -21,4 +21,4 @@ RUN apt-get update \
 ## should be set after locale was generate, overwise triggers warnings
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" LC_ALL="en_US.UTF-8"
 
-ENTRYPOINT ["sqlcmd"]
+CMD ["sqlcmd"]
